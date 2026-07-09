@@ -7,8 +7,9 @@
 
 /* Base page styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  --space-blue: #2f3c59;
+  font-family: 'DM Mono', monospace;
+  background-color: var(--space-blue);
   padding: 20px;
 }
 
@@ -23,15 +24,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  width: auto;
+  max-width: none;
+  margin: -20px -20px 20px -20px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-bottom: 20px;
 }
 
 h1 {
-  font-family: Verdana, sans-serif;
+  font-family: 'DM Mono', monospace;
   font-weight: bold;
   color: #212121;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  text-align: center;
 }
 
 /* Logo */
@@ -53,7 +64,7 @@ h1 {
 /* Inputs and buttons */
 input[type="date"],
 button {
-  font-family: Arial, sans-serif;
+  font-family: 'DM Mono', monospace;
   font-weight: normal;
   color: #666;
   padding: 10px 15px;
@@ -145,6 +156,24 @@ button:hover {
   margin: 0 auto 20px auto;
 }
 
+.date-selector-box {
+  background: #E4002B;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 18px 20px;
+}
+
+.date-selector-box .filters {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.date-selector-box p {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
 /* Three columns on wider screens */
 @media (min-width: 1000px) {
   .gallery-item {
@@ -173,12 +202,41 @@ button:hover {
   font-size: 14px;
 }
 
+.gallery-title {
+  margin-top: 12px;
+  padding: 0 5px;
+  font-size: 1rem;
+  color: #111111;
+  line-height: 1.35;
+}
+
+.gallery-date {
+  margin-top: 6px;
+  padding: 0 5px 8px 5px;
+  font-size: 0.9rem;
+  color: #404040;
+}
+
 /* Placeholder content */
 .placeholder {
   flex: 1 1 100%;
   text-align: center;
-  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px 12px 0 0;
+  padding: 40px 30px 150px 30px;
   color: #666;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(175deg, #ffffff 55%, var(--space-blue) 55%);
 }
 
 .placeholder-icon {
@@ -186,12 +244,7 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Font */  
-txt {
-  font-family: Arial, sans-serif;
-  font-weight: normal;
-  color: #666;
-}
+/* Font */ 
 
 body.modal-open {
   overflow: hidden;
@@ -255,6 +308,7 @@ body.modal-open {
 }
 
 .image-modal-explanation {
+  font-family: 'Public Sans', sans-serif;
   line-height: 1.5;
   color: #333;
 }

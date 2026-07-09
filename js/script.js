@@ -160,7 +160,17 @@ function createImageCard(apodData) {
     openImageModal(apodData);
   });
 
+  const cardTitle = document.createElement('h3');
+  cardTitle.className = 'gallery-title';
+  cardTitle.textContent = apodData.title;
+
+  const cardDate = document.createElement('p');
+  cardDate.className = 'gallery-date';
+  cardDate.textContent = `Date: ${apodData.date}`;
+
   card.appendChild(thumbnailButton);
+  card.appendChild(cardTitle);
+  card.appendChild(cardDate);
 
   return card;
 }
